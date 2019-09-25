@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class UIInp : MonoBehaviour
     , IPointerEnterHandler , IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
+    public int Name;
     private bool drag = false;
     private Transform OGParent;
     public void OnPointerDown(PointerEventData eventData)
@@ -30,7 +31,7 @@ public class UIInp : MonoBehaviour
             GameObject field = res[0].gameObject;
             //count++;
             //PlayerPrefs.SetInt("key", count);
-            field.GetComponent<Activat>().SetObject(gameObject);
+            field.GetComponent<Activat>().SetObject(gameObject,Name);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
