@@ -34,6 +34,9 @@ public class combiner : MonoBehaviour
         {
             com_1.GetComponent<Activat>().clearThat();
             com_2.GetComponent<Activat>().clearThat();
+            com_1.GetComponent<Activat>().Item = -1;
+            com_2.GetComponent<Activat>().Item = -1;
+
             ob = GameObject.Instantiate(ob, new Vector3(0, -80), new Quaternion(), GameObject.Find("Movables").transform);
             ob.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -80);
             Debug.Log(ob.GetComponent<UIInp>().Name);

@@ -12,6 +12,10 @@ public class UIInp : MonoBehaviour
     public void OnPointerDown(PointerEventData eventData)
     {
         drag = true;
+        if (transform.parent.GetComponent<Activat>())
+        { 
+            transform.parent.GetComponent<Activat>().Item = -1;
+        }
         transform.SetParent(OGParent);
     }
     public void OnPointerEnter(PointerEventData eventData)
