@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 1196450552}
   - component: {fileID: 1196450551}
   - component: {fileID: 1196450550}
+  - component: {fileID: 1196450553}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1235,6 +1236,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196450548}
   m_CullTransparentMesh: 0
+--- !u!114 &1196450553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196450548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305b957cc29450c4ebba8bfa39dd2ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransportTo: Trees
 --- !u!1 &1325992572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,9 +1785,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Stats
-
-'
+  m_Text: Discovered
 --- !u!222 &2105360424
 CanvasRenderer:
   m_ObjectHideFlags: 0
