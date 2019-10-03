@@ -4,11 +4,53 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UIInp : MonoBehaviour
-    , IPointerEnterHandler , IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+    , IDragHandler, IEndDragHandler
 {
-    public int Name;
+    public int hue;
+    private GameObject prParent;
+    private Vector3 prLocation;
     private bool drag = false;
-    private Transform OGParent;
+    private void Start()
+    {
+        prLocation = transform.localPosition;
+        prParent = transform.parent.gameObject;
+    }
+    private void Update()
+    {
+        if (!drag)
+        {
+            transform.localPosition = Vector2.Lerp(transform.localPosition, prLocation, 0.5f);
+        }
+    }
+    public void OnBeginDrag(PointerEventData data)
+    {
+        drag = true;
+        transform.position = data.position;
+    }
+    public void OnDrag(PointerEventData data)
+    {
+        drag = true;
+        
+        transform.position = data.position;
+    }
+    public void OnEndDrag(PointerEventData data)
+    {
+        drag = false;
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.minDepth = -2;
+        Collider2D[] res = new Collider2D[1];
+        int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter, res);
+        if (res[0])
+        {
+            Debug.Log(res[0].gameObject);
+            prParent = res[0].gameObject;
+            transform.parent = prParent.transform;
+            prLocation = new Vector2();
+            //count++;
+            //PlayerPrefs.SetInt("key", count);
+        }
+    }
+    /*
     public void OnPointerDown(PointerEventData eventData)
     {
         drag = true;
@@ -35,7 +77,7 @@ public class UIInp : MonoBehaviour
             GameObject field = res[0].gameObject;
             //count++;
             //PlayerPrefs.SetInt("key", count);
-            field.GetComponent<Activat>().SetObject(gameObject,Name);
+            field.GetComponent<Activat>().SetObject(gameObject,hue);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -55,5 +97,5 @@ public class UIInp : MonoBehaviour
         {
             transform.position = Input.mousePosition;
         }
-    }
+    }*/
 }
