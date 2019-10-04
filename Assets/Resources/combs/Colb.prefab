@@ -188,3 +188,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hue: 0
+  OnMoving: {fileID: 0}

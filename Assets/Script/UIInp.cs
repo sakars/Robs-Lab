@@ -8,12 +8,14 @@ public class UIInp : MonoBehaviour
 {
     public int hue;
     private GameObject prParent;
+    private GameObject mov;
     private Vector3 prLocation;
     private bool drag = false;
     private void Start()
     {
         prLocation = transform.localPosition;
         prParent = transform.parent.gameObject;
+        mov = GameObject.Find("Movs");
     }
     private void Update()
     {
@@ -22,16 +24,11 @@ public class UIInp : MonoBehaviour
             transform.localPosition = Vector2.Lerp(transform.localPosition, prLocation, 0.5f);
         }
     }
-    public void OnBeginDrag(PointerEventData data)
-    {
-        drag = true;
-        transform.position = data.position;
-    }
     public void OnDrag(PointerEventData data)
     {
         drag = true;
-        
         transform.position = data.position;
+        transform.SetParent(mov.transform);
     }
     public void OnEndDrag(PointerEventData data)
     {
@@ -43,12 +40,15 @@ public class UIInp : MonoBehaviour
         if (res[0])
         {
             Debug.Log(res[0].gameObject);
-            prParent = res[0].gameObject;
-            transform.parent = prParent.transform;
-            prLocation = new Vector2();
+            if (res[0].transform.childCount == 0)
+            {
+                prParent = res[0].gameObject;
+                prLocation = new Vector2();
+            }
             //count++;
             //PlayerPrefs.SetInt("key", count);
         }
+        transform.SetParent(prParent.transform);
     }
     /*
     public void OnPointerDown(PointerEventData eventData)
