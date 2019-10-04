@@ -39,6 +39,24 @@ public class UIInp : MonoBehaviour
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + value.ToString());
         }
     }
+    public void SetFill()
+    {
+        if (fill == 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Images/colbs/kolb_2_" + fill.ToString());
+            GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + fill.ToString());
+        }
+    }
+    public float GetHue()
+    {
+        float hue;
+        Color.RGBToHSV(GetComponent<Image>().color, out hue,out float i,out float i2);
+        return hue;
+    }
     public void OnDrag(PointerEventData data)
     {
         drag = true;
