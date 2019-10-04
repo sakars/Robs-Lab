@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIInp : MonoBehaviour
     , IDragHandler, IEndDragHandler
 {
-    public int hue;
-    private GameObject prParent;
+    public int fill=100;
+    [HideInInspector]
+    public GameObject prParent;
     private GameObject mov;
     private Vector3 prLocation;
     private bool drag = false;
@@ -22,6 +24,19 @@ public class UIInp : MonoBehaviour
         if (!drag)
         {
             transform.localPosition = Vector2.Lerp(transform.localPosition, prLocation, 0.5f);
+            
+        }
+    }
+    public void SetFill(int value)
+    {
+        if (value == 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Images/colbs/kolb_2_" + value.ToString());
+            GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + value.ToString());
         }
     }
     public void OnDrag(PointerEventData data)
@@ -34,68 +49,25 @@ public class UIInp : MonoBehaviour
     {
         drag = false;
         ContactFilter2D filter = new ContactFilter2D();
-        filter.minDepth = -2;
-        Collider2D[] res = new Collider2D[1];
-        int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter, res);
+        Collider2D[] res = new Collider2D[2];
+        int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter,res);
         if (res[0])
         {
-            Debug.Log(res[0].gameObject);
-            if (res[0].transform.childCount == 0)
+            if (res[0].GetComponent<UIInp>())
             {
-                prParent = res[0].gameObject;
-                prLocation = new Vector2();
+                res[0] = res[1];
             }
-            //count++;
-            //PlayerPrefs.SetInt("key", count);
+            Debug.Log(res[0].gameObject);
+            if (res[0].transform.childCount != 0)
+            {
+                Debug.Log(prParent.name);
+                Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
+                res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
+                res[0].transform.GetChild(0).SetParent(prParent.transform);
+            }
+            prParent = res[0].gameObject;
+            prLocation = new Vector2();
         }
         transform.SetParent(prParent.transform);
     }
-    /*
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        drag = true;
-        if (transform.parent.GetComponent<Activat>())
-        { 
-            transform.parent.GetComponent<Activat>().Item = -1;
-        }
-        transform.SetParent(OGParent);
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("HI");
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        drag = false;
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.minDepth = -2;
-        Collider2D[] res = new Collider2D[1];
-        int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter, res);
-        if (res[0])
-        {
-            Debug.Log(res[0].gameObject);
-            GameObject field = res[0].gameObject;
-            //count++;
-            //PlayerPrefs.SetInt("key", count);
-            field.GetComponent<Activat>().SetObject(gameObject,hue);
-        }
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("BYE");
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        OGParent = transform.parent;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (drag)
-        {
-            transform.position = Input.mousePosition;
-        }
-    }*/
 }
