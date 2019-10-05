@@ -233,8 +233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 103.07, y: -100}
+  m_SizeDelta: {x: 208.08, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &39176028
 MonoBehaviour:
@@ -269,10 +269,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.8254717, g: 0.9878454, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.8235295, g: 0.98823535, b: 1, a: 1}
+    m_PressedColor: {r: 0.8235295, g: 0.98823535, b: 1, a: 1}
+    m_SelectedColor: {r: 0.8235295, g: 0.98823535, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -384,8 +384,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: bf41b92a821be484dad630827fd6a76e, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1826,7 +1826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556873420}
   m_Layer: 5
-  m_Name: Quick Bar (2)
+  m_Name: BottomBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3681,7 +3681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 4e81e22234b83ff45bc12f1662169b96, type: 3}
+  m_Texture: {fileID: 2800000, guid: c6ac7f8ddcd09d54e9ecf46db434ec9d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3888,7 +3888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1659315968}
   m_Layer: 5
-  m_Name: Quick Bar (1)
+  m_Name: TopBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4254,7 +4254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ef0b9c69b9534fc428d6a77dfffb5158, type: 3}
+  m_Texture: {fileID: 2800000, guid: cf6c4a70f5d0bc24e9726ec86154a9f2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
