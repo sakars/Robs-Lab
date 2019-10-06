@@ -11,11 +11,9 @@ public class UIInp : MonoBehaviour
     [HideInInspector]
     public GameObject prParent;
     private GameObject mov;
-    private Vector3 prLocation;
     private bool drag = false;
     private void Start()
     {
-        prLocation = transform.localPosition;
         prParent = transform.parent.gameObject;
         mov = GameObject.Find("Movs");
     }
@@ -23,7 +21,7 @@ public class UIInp : MonoBehaviour
     {
         if (!drag)
         {
-            transform.localPosition = Vector2.Lerp(transform.localPosition, prLocation, 0.5f);
+            transform.localPosition = Vector2.Lerp(transform.localPosition, new Vector2(), 0.5f);
             
         }
     }
@@ -84,7 +82,6 @@ public class UIInp : MonoBehaviour
                 res[0].transform.GetChild(0).SetParent(prParent.transform);
             }
             prParent = res[0].gameObject;
-            prLocation = new Vector2();
         }
         transform.SetParent(prParent.transform);
     }
