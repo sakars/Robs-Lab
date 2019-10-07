@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class combiner : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioClip clip;
     private Button yourButton;
     public Transform com_1;
     public Transform com_2;
@@ -18,7 +17,7 @@ public class combiner : MonoBehaviour
     {
         yourButton = transform.GetComponent<Button>();
         yourButton.onClick.AddListener(combine);
-        
+        //GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
