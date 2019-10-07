@@ -23,6 +23,10 @@ public class Hb_Disabler : MonoBehaviour
                 {
                     script.SetHb(on);
                 }
+                foreach (var colb in UIInp.instances)
+                {
+                    colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
+                }
             }
         }
         else
@@ -33,6 +37,11 @@ public class Hb_Disabler : MonoBehaviour
                 foreach (var script in Activat.instances)
                 {
                     script.SetHb(on);
+                }
+                foreach (var colb in UIInp.instances)
+                {
+                    if(colb.transform!=transform.GetChild(0))
+                    colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
                 }
             }
         }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIInp : MonoBehaviour
     , IDragHandler, IEndDragHandler
 {
+    public static List<UIInp> instances=new List<UIInp>();
     public int fill=100;
     [HideInInspector]
     public GameObject prParent;
@@ -16,6 +17,7 @@ public class UIInp : MonoBehaviour
     {
         prParent = transform.parent.gameObject;
         mov = GameObject.Find("Movs");
+        instances.Add(this);
     }
     private void Update()
     {
@@ -36,6 +38,7 @@ public class UIInp : MonoBehaviour
             Debug.Log("Images/colbs/kolb_2_" + value.ToString());
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + value.ToString());
         }
+        fill = value;
     }
     public void SetFill()
     {
