@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class combiner : MonoBehaviour
 {
     // Start is called before the first frame update
+    public AudioClip clip;
     private Button yourButton;
     public Transform com_1;
     public Transform com_2;

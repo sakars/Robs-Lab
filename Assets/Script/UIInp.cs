@@ -72,19 +72,21 @@ public class UIInp : MonoBehaviour
         int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter,res);
         if (res[0])
         {
-            if (res[0].GetComponent<UIInp>())
+            if (res[0].transform.GetComponent<Activat>())
             {
-                res[0] = res[1];
-            }
-            Debug.Log(res[0].gameObject);
-            if (res[0].transform.childCount != 0)
+                Debug.Log(res[0].gameObject);
+                if (res[0].transform.childCount != 0)
+                {
+                    Debug.Log(prParent.name);
+                    Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
+                    res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
+                    res[0].transform.GetChild(0).SetParent(prParent.transform);
+                }
+                prParent = res[0].gameObject;
+            }/* else if ()
             {
-                Debug.Log(prParent.name);
-                Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
-                res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
-                res[0].transform.GetChild(0).SetParent(prParent.transform);
-            }
-            prParent = res[0].gameObject;
+
+            }*/
         }
         transform.SetParent(prParent.transform);
     }
