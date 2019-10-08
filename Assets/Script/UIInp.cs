@@ -40,7 +40,7 @@ public class UIInp : MonoBehaviour
         }
         else
         {
-            Debug.Log("Images/colbs/kolb_2_" + value.ToString());
+            //Debug.Log("Images/colbs/kolb_2_" + value.ToString());
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + value.ToString());
         }
         fill = value;
@@ -54,7 +54,7 @@ public class UIInp : MonoBehaviour
         }
         else
         {
-            Debug.Log("Images/colbs/kolb_2_" + fill.ToString());
+            //Debug.Log("Images/colbs/kolb_2_" + fill.ToString());
             GetComponent<Image>().sprite = Resources.Load<Sprite>("Images/colbs/kolb_2_" + fill.ToString());
         }
     }
@@ -80,11 +80,11 @@ public class UIInp : MonoBehaviour
         {
             if (res[0].transform.GetComponent<Activat>())
             {
-                Debug.Log(res[0].gameObject);
+                //Debug.Log(res[0].gameObject);
                 if (res[0].transform.childCount != 0)
                 {
-                    Debug.Log(prParent.name);
-                    Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
+                    //Debug.Log(prParent.name);
+                    //Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
                     res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
                     res[0].transform.GetChild(0).SetParent(prParent.transform);
                     colber.GetComponent<AudioSource>().Play();

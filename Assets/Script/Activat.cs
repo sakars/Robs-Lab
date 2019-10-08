@@ -9,7 +9,7 @@ public class Activat : MonoBehaviour
     void Start()
     {
         instances.Add(transform.GetComponent<Activat>());
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
     }
     public void SetHb(bool active)
     {

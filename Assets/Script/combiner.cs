@@ -50,9 +50,9 @@ public class combiner : MonoBehaviour
             {
                 mid = (Mathf.Max(hue1, hue2) - distance / 2);
             }*/
-            mid *= 11f;
+            mid *= 10f;
             mid = Mathf.Round(mid);
-            mid /= 11f;
+            mid /= 10f;
             mid %= 1;
             UIInp sc1 = com_1.GetChild(0).GetComponent<UIInp>();
             UIInp sc2 = com_2.GetChild(0).GetComponent<UIInp>();
@@ -60,7 +60,6 @@ public class combiner : MonoBehaviour
             {
                 if (slot.transform.childCount == 0)
                 {
-
                     sc1.fill -= 25;
                     sc2.fill -= 25;
                     sc1.SetFill(sc1.fill);

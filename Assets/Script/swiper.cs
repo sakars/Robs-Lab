@@ -15,7 +15,7 @@ public class swiper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         lloc = new Vector2(Screen.width,Screen.height/2);
         rloc = new Vector2(0, Screen.height/2);
         st = transform.position;
@@ -60,7 +60,7 @@ public class swiper : MonoBehaviour
         {
             right = false;
         }
-        Debug.Log(deltaValue);
+        //Debug.Log(deltaValue);
         deltaValue = Vector2.zero;
     }
 }
