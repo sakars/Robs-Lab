@@ -13,8 +13,12 @@ public class UIInp : MonoBehaviour
     public GameObject prParent;
     private GameObject mov;
     private bool drag = false;
+    public GameObject colber;
+    public GameObject colber2;
     private void Start()
     {
+        colber = GameObject.Find("ColbSounds");
+        colber2 = GameObject.Find("ColbPlace");
         prParent = transform.parent.gameObject;
         mov = GameObject.Find("Movs");
         instances.Add(this);
@@ -83,6 +87,11 @@ public class UIInp : MonoBehaviour
                     Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
                     res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
                     res[0].transform.GetChild(0).SetParent(prParent.transform);
+                    colber.GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    colber2.GetComponent<AudioSource>().Play();
                 }
                 prParent = res[0].gameObject;
             }
