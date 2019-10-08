@@ -85,10 +85,12 @@ public class UIInp : MonoBehaviour
                     res[0].transform.GetChild(0).SetParent(prParent.transform);
                 }
                 prParent = res[0].gameObject;
-            }/* else if ()
+            }
+            else if (res[0].transform.GetComponent<Robo>())
             {
-
-            }*/
+                fill -= 25;
+                SetFill();
+            }
         }
         transform.SetParent(prParent.transform);
     }

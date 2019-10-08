@@ -38,28 +38,24 @@ public class combiner : MonoBehaviour
             Color.RGBToHSV(it_1, out hue1, out t, out t);
             float hue2;
             Color.RGBToHSV(it_2, out hue2, out t, out t);
-            float distance = Mathf.Abs(hue1 - hue2);
+            //float distance = Mathf.Abs(hue1 - hue2);
             float mid;
-            if (distance > 0.5f)
+            mid = (hue1 + hue2) / 2;
+            /*if (distance > 0.5f)
             {
                 distance = 1 - distance;
-                mid = (Mathf.Max(hue1, hue2) + distance / 2) % 1;
+                mid = (Mathf.Max(hue1, hue2) + distance / 2);
             }
             else
             {
-                mid = (Mathf.Max(hue1, hue2) - distance / 2) % 1;
-            }
+                mid = (Mathf.Max(hue1, hue2) - distance / 2);
+            }*/
+            mid *= 11f;
+            mid = Mathf.Round(mid);
+            mid /= 11f;
+            mid %= 1;
             UIInp sc1 = com_1.GetChild(0).GetComponent<UIInp>();
             UIInp sc2 = com_2.GetChild(0).GetComponent<UIInp>();
-            foreach (var slot in order)
-            {
-                if (slot.transform.childCount != 0)
-                {
-                    Color color = slot.transform.GetChild(0).GetComponent<Image>().color;
-                    float hue;
-
-                }
-            }
             foreach (var slot in order)
             {
                 if (slot.transform.childCount == 0)
