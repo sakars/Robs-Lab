@@ -32,6 +32,7 @@ public class UIInp : MonoBehaviour
         if (value == 0)
         {
             Destroy(gameObject);
+            instances.Remove(this);
         }
         else
         {
@@ -45,6 +46,7 @@ public class UIInp : MonoBehaviour
         if (fill == 0)
         {
             Destroy(gameObject);
+            instances.Remove(this);
         }
         else
         {
