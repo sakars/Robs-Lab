@@ -56,11 +56,23 @@ public class swiper : MonoBehaviour
         if (deltaValue.x < -150)
         {
             right = true;
-        }else if (deltaValue.x > 150)
+        }
+        else if (deltaValue.x > 150)
         {
             right = false;
         }
         //Debug.Log(deltaValue);
+        deltaValue = Vector2.zero;
+    }
+
+    public void forcePagrabs()
+    {
+        right = true;
+        deltaValue = Vector2.zero;
+    }
+    public void forceTelpa()
+    {
+        right = false;
         deltaValue = Vector2.zero;
     }
 }
