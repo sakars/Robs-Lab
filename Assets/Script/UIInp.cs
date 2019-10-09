@@ -13,8 +13,8 @@ public class UIInp : MonoBehaviour
     public GameObject prParent;
     private GameObject mov;
     private bool drag = false;
-    public GameObject colber;
-    public GameObject colber2;
+    private GameObject colber;
+    private GameObject colber2;
     private void Start()
     {
         colber = GameObject.Find("ColbSounds");
@@ -64,6 +64,10 @@ public class UIInp : MonoBehaviour
         Color.RGBToHSV(GetComponent<Image>().color, out hue,out float i,out float i2);
         return hue;
     }
+    public void SetHue(float hue)
+    {
+        GetComponent<Image>().color = Color.HSVToRGB(hue, 1, 1);
+    }
     public void OnDrag(PointerEventData data)
     {
         drag = true;
@@ -99,6 +103,7 @@ public class UIInp : MonoBehaviour
             {
                 fill -= 25;
                 SetFill();
+                res[0].transform.GetComponent<Robo>().GiveLekarstvo((int)(GetHue()*10));
             }
         }
         transform.SetParent(prParent.transform);

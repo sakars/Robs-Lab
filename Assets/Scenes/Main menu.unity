@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &447389823
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1039,8 +1039,8 @@ GameObject:
   - component: {fileID: 1054370594}
   - component: {fileID: 1054370593}
   - component: {fileID: 1054370598}
-  - component: {fileID: 1054370596}
   - component: {fileID: 1054370597}
+  - component: {fileID: 1054370599}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1146,19 +1146,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054370591}
   m_CullTransparentMesh: 0
---- !u!114 &1054370596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054370591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 305b957cc29450c4ebba8bfa39dd2ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransportTo: Game
 --- !u!82 &1054370597
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1267,6 +1254,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531d3dda065e4d84b963534518afed6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1054370599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054370591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae60b0ced28c6845baa7ef7ce953bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransportTo: Game
+  level: 1
 --- !u!1 &1140066695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,8 +1434,8 @@ GameObject:
   - component: {fileID: 1446227513}
   - component: {fileID: 1446227512}
   - component: {fileID: 1446227516}
-  - component: {fileID: 1446227511}
   - component: {fileID: 1446227515}
+  - component: {fileID: 1446227511}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1470,10 +1471,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1446227509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 305b957cc29450c4ebba8bfa39dd2ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ae60b0ced28c6845baa7ef7ce953bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TransportTo: Game
+  level: 3
 --- !u!114 &1446227512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,8 +2240,8 @@ GameObject:
   - component: {fileID: 2131115806}
   - component: {fileID: 2131115805}
   - component: {fileID: 2131115809}
-  - component: {fileID: 2131115804}
   - component: {fileID: 2131115808}
+  - component: {fileID: 2131115804}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -2275,10 +2277,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2131115802}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 305b957cc29450c4ebba8bfa39dd2ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ae60b0ced28c6845baa7ef7ce953bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TransportTo: Game
+  level: 2
 --- !u!114 &2131115805
 MonoBehaviour:
   m_ObjectHideFlags: 0

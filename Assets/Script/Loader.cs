@@ -30,6 +30,22 @@ public class Loader : MonoBehaviour
         {
             Debug.Log(thing);
         }
+        GameObject colb=Resources.Load<GameObject>("combs/Colb");
+        GameObject[] order = GameObject.Find("CombineButton").transform.GetComponent<combiner>().order;
+        for (int i = 0; i < Ldata.colbHues.Length; i++)
+        {
+            GameObject newC = GameObject.Instantiate(colb, order[Ldata.colbLoc[i]].transform);
+            UIInp sc = newC.GetComponent<UIInp>();
+            sc.SetHue(Ldata.colbHues[i] * 0.1f);
+            sc.SetFill(Ldata.colbFills[i]);
+            newC.transform.localPosition = new Vector3();
+            newC.transform.localScale = new Vector3(1, 1, 1);
+        }
+        GameObject bot = Resources.Load<GameObject>("combs/Robs");
+        for(int i = 0; i < Ldata.botHues.Length; i++)
+        {
+            //GameObject newB = GameObject.Instantiate(bot,);
+        }
     }
     private class Layer1
     {
