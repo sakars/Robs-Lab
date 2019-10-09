@@ -13,7 +13,10 @@ public class buttonSound : MonoBehaviour
     }
     void Go()
     {
-        transform.GetComponent<AudioSource>().Play();
+        if (sfx_toggle.sfx_togg)
+        {
+            GameObject.Find("BUTTONPLAYER").transform.GetComponent<AudioSource>().Play();
+        }
     }
     // Update is called once per frame
     void Update()
