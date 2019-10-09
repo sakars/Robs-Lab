@@ -11,13 +11,13 @@ public class tutorial : MonoBehaviour
     public GameObject theotherman;
     void Start()
     {
-        if(PlayerPrefs.GetInt("Tut") == 0)
-        {
+        //if(PlayerPrefs.GetInt("Tut") == 0)
+        //{
             farth = 0;
             tg = GameObject.Find("TutorialGuys");
             tg.SetActive(true);
             part1();
-        }
+        //}
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class tutorial : MonoBehaviour
                 break;
             case 15:
                 simple(2);
-                PlayerPrefs.SetInt("Tut", 1);
+                //PlayerPrefs.SetInt("Tut", 1);
                 tg.SetActive(false);
                 break;
         }

@@ -56,6 +56,7 @@ public class Loader : MonoBehaviour
             newB.GetComponent<Robo>().SetBot();
             newB.SetActive(true);
         }
+        GameObject.Find("roblocs").GetComponent<receptionist>().Test();
     }
     private class Layer1
     {
