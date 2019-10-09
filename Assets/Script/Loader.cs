@@ -42,9 +42,19 @@ public class Loader : MonoBehaviour
             newC.transform.localScale = new Vector3(1, 1, 1);
         }
         GameObject bot = Resources.Load<GameObject>("combs/Robs");
-        for(int i = 0; i < Ldata.botHues.Length; i++)
+        Debug.Log(bot);
+        for(int i = Ldata.botHues.Length - 1; i >= 0; i--)
         {
-            //GameObject newB = GameObject.Instantiate(bot,);
+            GameObject newB = GameObject.Instantiate(bot,GameObject.Find("Remaining_bots").transform);
+            newB.GetComponent<Robo>().info = gameObject;
+            newB.GetComponent<Robo>().needed = Ldata.botHues[i];
+            if (Ldata.botPrizes[i]!=11)
+            {
+                newB.GetComponent<Robo>().give = true;
+                newB.GetComponent<Robo>().prize = Ldata.botPrizes[i];
+            }
+            newB.GetComponent<Robo>().SetBot();
+            newB.SetActive(true);
         }
     }
     private class Layer1

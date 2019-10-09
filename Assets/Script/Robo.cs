@@ -9,6 +9,7 @@ public class Robo : MonoBehaviour
     public int needed;
     public bool give=false;
     public int prize;
+    public GameObject info;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class Robo : MonoBehaviour
     void Update()
     {
         
+    }
+    public void SetBot()
+    {
+        GetComponent<Image>().sprite = info.GetComponent<RobLooks>().sprites[needed];
     }
     public void GiveLekarstvo(int hue)
     {
