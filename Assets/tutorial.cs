@@ -95,7 +95,7 @@ public class tutorial : MonoBehaviour
         else
         {
             tg.SetActive(false);
-            PlayerPrefs.GetInt("Tut")
+            PlayerPrefs.GetInt("Tut");
         }
     }
 }
