@@ -46,6 +46,7 @@ public class Loader : MonoBehaviour
         for(int i = Ldata.botHues.Length - 1; i >= 0; i--)
         {
             GameObject newB = GameObject.Instantiate(bot,GameObject.Find("Remaining_bots").transform);
+            newB.transform.SetAsFirstSibling();
             newB.GetComponent<Robo>().info = gameObject;
             newB.GetComponent<Robo>().needed = Ldata.botHues[i];
             if (Ldata.botPrizes[i]!=11)
