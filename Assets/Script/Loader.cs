@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 public class Loader : MonoBehaviour
 {
     public int level;
@@ -12,7 +13,7 @@ public class Loader : MonoBehaviour
         Load();
     }
 
-    // Update is called once per frame
+    // Update is called once per framey
     void Update()
     {
         
