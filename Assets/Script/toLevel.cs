@@ -17,7 +17,6 @@ public class toLevel : MonoBehaviour
     void Go()
     {
         PlayerPrefs.SetInt("Clevel", level);
-        PlayerPrefs.SetInt("Tut", 0);
         SceneManager.LoadScene(TransportTo);
     }
     // Update is called once per frame

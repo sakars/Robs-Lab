@@ -11,13 +11,17 @@ public class tutorial : MonoBehaviour
     public GameObject theotherman;
     void Start()
     {
-        //if(PlayerPrefs.GetInt("Tut") == 0)
-        //{
+        if(PlayerPrefs.GetInt("Tut") == 0)
+        {
             farth = 0;
-            tg = GameObject.Find("TutorialGuys");
+            //tg = GameObject.Find("TutorialGuys");
             tg.SetActive(true);
             part1();
-        //}
+        }
+        else
+        {
+            GameObject.Find("roblocs").GetComponent<receptionist>().InvokeRepeating("LowerScore", 5.0f, 5.0f);
+        }
     }
 
     // Update is called once per frame
@@ -78,7 +82,8 @@ public class tutorial : MonoBehaviour
                 break;
             case 17:
                 simple(2);
-                //PlayerPrefs.SetInt("Tut", 1);
+                PlayerPrefs.SetInt("Tut", 1);
+                Debug.Log(PlayerPrefs.GetInt("Tut"));
                 break;
         }
     }
@@ -102,6 +107,7 @@ public class tutorial : MonoBehaviour
         else if (farth == 17)
         {
             tg.SetActive(false);
+            receptionist.self.InvokeRepeating("LowerScore", 5.0f, 5.0f);
         }
     }
 }

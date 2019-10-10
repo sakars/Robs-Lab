@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hb_Disabler : MonoBehaviour
 {
     bool on = true;
+    List<Activat> deletes = new List<Activat>();
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +28,13 @@ public class Hb_Disabler : MonoBehaviour
                     }
                     else
                     {
-                        Activat.instances.Remove(script);
+                        deletes.Add(script);
+                        //Activat.instances.Remove(script);
                     }
                 }
                 foreach (var colb in UIInp.instances)
                 {
-                    colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
+                    if(colb) colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
                 }
             }
         }
@@ -49,15 +51,24 @@ public class Hb_Disabler : MonoBehaviour
                     }
                     else
                     {
-                        Activat.instances.Remove(script);
+                        deletes.Add(script);
+                        //Activat.instances.Remove(script);
                     }
                 }
                 foreach (var colb in UIInp.instances)
                 {
-                    if(colb.transform!=transform.GetChild(0))
-                    colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
+                    if (colb)
+                    {
+                        if (colb.transform != transform.GetChild(0))
+                            colb.transform.GetComponent<BoxCollider2D>().enabled = !on;
+                    }
                 }
             }
         }
+        foreach(var sc in deletes)
+        {
+            Activat.instances.Remove(sc);
+        }
+        deletes = new List<Activat>();
     }
 }
