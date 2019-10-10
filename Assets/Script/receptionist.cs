@@ -10,6 +10,9 @@ public class receptionist : MonoBehaviour
     public GameObject WaitingRoom;
     public GameObject patientsLeft;
     public GameObject reputation;
+    public GameObject winhlerk;
+    public GameObject winstarer;
+    public float endscore = 0;
     void Start()
     {
         self = this;
@@ -63,7 +66,26 @@ public class receptionist : MonoBehaviour
     }
     public void win()
     {
-        Debug.Log("You win!!!");
+        winhlerk.SetActive(true);
+        endscore = reputation_score * 50;
+        foreach(var colb in UIInp.instances)
+        {
+            if (colb) endscore += colb.fill;
+        }
+        GameObject.Find("ScoringSyst").GetComponent<Text>().text = "Score: " + endscore/4;
+        
+        for (int i = 1; i < 4; i++)
+        {
+            winstarer.transform.GetChild(i - 1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f);
+            if (endscore > i * 333)
+            {
+                winstarer.transform.GetChild(i-1).GetComponent<Image>().color = new Color(1f, 1f, 1f);
+            }
+            else
+            {
+                break;
+            }
+        }
     }
     public void lose()
     {
