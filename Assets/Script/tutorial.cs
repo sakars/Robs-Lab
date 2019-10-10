@@ -62,18 +62,21 @@ public class tutorial : MonoBehaviour
                 simple(1);
                 break;
             case 12:
-                simple(3);
+                simple(1);
                 break;
             case 13:
-                simple(1);
+                simple(3);
                 break;
             case 14:
                 simple(1);
                 break;
             case 15:
-                simple(2);
+                simple(1);
                 break;
             case 16:
+                simple(2);
+                break;
+            case 17:
                 simple(2);
                 //PlayerPrefs.SetInt("Tut", 1);
                 break;
@@ -92,11 +95,11 @@ public class tutorial : MonoBehaviour
 
     public void Advance()
     {
-        if(farth < 16)
+        if(farth < 17)
         {
             part1();
         }
-        else if (farth == 16)
+        else if (farth == 17)
         {
             tg.SetActive(false);
         }
