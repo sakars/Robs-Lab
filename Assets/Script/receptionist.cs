@@ -11,12 +11,15 @@ public class receptionist : MonoBehaviour
     public GameObject patientsLeft;
     public GameObject reputation;
     public GameObject winhlerk;
+    public GameObject loshlerk;
     public GameObject winstarer;
     public float endscore = 0;
     void Start()
     {
         self = this;
         reputation_score = 75;
+        winhlerk.SetActive(false);
+        loshlerk.SetActive(false);
         //InvokeRepeating("LowerScore", 5.0f, 5.0f);
     }
     void LowerScore()
@@ -72,7 +75,7 @@ public class receptionist : MonoBehaviour
         {
             if (colb) endscore += colb.fill;
         }
-        GameObject.Find("ScoringSyst").GetComponent<Text>().text = "Score: " + endscore/4;
+        GameObject.Find("ScoringSyst").GetComponent<Text>().text = "Score: " + Mathf.RoundToInt(endscore/4);
         
         for (int i = 1; i < 4; i++)
         {
@@ -89,7 +92,7 @@ public class receptionist : MonoBehaviour
     }
     public void lose()
     {
-        Debug.Log("you lose");
+        loshlerk.SetActive(true);
     }
     public void didLose()
     {
