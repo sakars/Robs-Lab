@@ -51,11 +51,14 @@ public class Robo : MonoBehaviour
             GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_2");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
             receptionist.reputation_score -= 10;
+            if (receptionist.reputation_score < 20) receptionist.reputation_score = 20;
             lightFade = 0.5f;
             InvokeRepeating("fade", 0.03f, 0.04f);
         }
         Receptionist.GetComponent<receptionist>().displayScore();
+        Receptionist.GetComponent<receptionist>().didLose();
     }
+    
     public void fade()
     {
         lightFade += 0.05f;

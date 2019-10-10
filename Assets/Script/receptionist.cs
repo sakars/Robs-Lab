@@ -20,6 +20,10 @@ public class receptionist : MonoBehaviour
     {
         reputation_score--;
         reputation.GetComponent<Text>().text = reputation_score + "%";
+        if (reputation_score < 20)
+        {
+            lose();
+        }
     }
     // Update is called once per frame
     public void Test()
@@ -60,5 +64,18 @@ public class receptionist : MonoBehaviour
     public void win()
     {
         Debug.Log("You win!!!");
+    }
+    public void lose()
+    {
+        Debug.Log("you lose");
+    }
+    public void didLose()
+    {
+        bool lost = true;
+        foreach(var sc in UIInp.instances)
+        {
+            if (sc) lost = false;
+        }
+        if (lost) lose();
     }
 }
