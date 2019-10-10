@@ -12,6 +12,11 @@ public class Robo : MonoBehaviour
     public GameObject info;
     public GameObject receptionist;
     public GameObject gudRoom;
+
+    public float lightFade = 0.5f;
+
+    // Implement a call with the right signature for events going off
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,24 @@ public class Robo : MonoBehaviour
             transform.SetParent(gudRoom.transform);
             transform.localPosition = Vector2.zero;
             receptionist.GetComponent<receptionist>().Test();
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_3");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_2");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
+            lightFade = 0.5f;
+            InvokeRepeating("fade", 0.03f, 0.04f);
+        }
+    }
+    public void fade()
+    {
+        lightFade += 0.05f;
+        GetComponent<Image>().color = new Color(1.0f, lightFade, lightFade);
+        if (lightFade > 1.0f)
+        {
+            CancelInvoke();
         }
     }
     

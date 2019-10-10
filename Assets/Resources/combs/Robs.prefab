@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3003618124218386960}
   - component: {fileID: 3003618124218386961}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Robs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needed: 0
+  give: 0
+  prize: 0
+  info: {fileID: 0}
+  receptionist: {fileID: 0}
+  gudRoom: {fileID: 0}
+  clipperino: {fileID: 8300000, guid: 04a18f31b1dfbc64fbaf07ecc1eee4ab, type: 3}
 --- !u!61 &3003618124218386961
 BoxCollider2D:
   m_ObjectHideFlags: 0
