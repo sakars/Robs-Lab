@@ -29,10 +29,23 @@ public class tutorial : MonoBehaviour
     {
         
     }
+
+    public void redo()
+    {
+        farth = 0;
+        //tg = GameObject.Find("TutorialGuys");
+        tg.SetActive(true);
+        GameObject.Find("roblocs").GetComponent<receptionist>().CancelInvoke();
+        part1();
+    }
     void part1()
     {
         farth++;
-        switch (farth) {
+        switch (farth)
+        {
+            case 1:
+                simple(1);
+                break;
             case 2:
                 simple(1);
                 break;

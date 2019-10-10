@@ -69,6 +69,11 @@ public class receptionist : MonoBehaviour
     }
     public void win()
     {
+        CancelInvoke();
+        if (PlayerPrefs.GetInt("Clevel") != 5)
+        {
+            PlayerPrefs.SetInt("Lvl" + (PlayerPrefs.GetInt("Clevel") + 1).ToString(), 1);
+        }
         winhlerk.SetActive(true);
         endscore = reputation_score * 50;
         foreach(var colb in UIInp.instances)
@@ -92,6 +97,7 @@ public class receptionist : MonoBehaviour
     }
     public void lose()
     {
+        CancelInvoke();
         loshlerk.SetActive(true);
     }
     public void didLose()
