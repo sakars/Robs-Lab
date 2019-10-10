@@ -20,6 +20,7 @@ public class receptionist : MonoBehaviour
     {
         if(transform.GetChild(0).childCount==0 && transform.GetChild(1).childCount == 0 && transform.GetChild(2).childCount == 0)
         {
+            Debug.Log("reset");
             for(int i=0;i<3 && WaitingRoom.transform.childCount!=0;i++)
             {
                 Transform ob = WaitingRoom.transform.GetChild(0);
@@ -28,7 +29,16 @@ public class receptionist : MonoBehaviour
                 ob.GetComponent<Image>().SetNativeSize();
                 ob.localScale = new Vector3(0.8f, 0.8f, 0.8f);
                 ob.GetComponent<BoxCollider2D>().size = ob.transform.GetComponent<RectTransform>().rect.size;
+
+            }
+            if(WaitingRoom.transform.childCount == 0)
+            {
+                win();
             }
         }
+    }
+    public void win()
+    {
+
     }
 }

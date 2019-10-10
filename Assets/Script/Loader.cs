@@ -55,6 +55,7 @@ public class Loader : MonoBehaviour
                 newB.GetComponent<Robo>().give = true;
                 newB.GetComponent<Robo>().prize = Ldata.botPrizes[i];
             }
+            newB.GetComponent<Robo>().receptionist = GameObject.Find("roblocs");
             newB.GetComponent<Robo>().SetBot();
             newB.SetActive(true);
         }

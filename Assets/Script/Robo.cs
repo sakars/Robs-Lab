@@ -29,13 +29,13 @@ public class Robo : MonoBehaviour
     }
     public void GiveLekarstvo(int hue)
     {
-        Debug.Log(needed);
-        Debug.Log(hue);
+        //Debug.Log(needed);
+        //Debug.Log(hue);
         if (needed == hue)
         {
             transform.SetParent(gudRoom.transform);
             transform.localPosition = Vector2.zero;
-            //receptionist
+            receptionist.GetComponent<receptionist>().Test();
         }
     }
     

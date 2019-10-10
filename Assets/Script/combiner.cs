@@ -54,6 +54,7 @@ public class combiner : MonoBehaviour
             mid = Mathf.Round(mid);
             mid /= 10f;
             mid %= 1;
+            Debug.Log(mid);
             UIInp sc1 = com_1.GetChild(0).GetComponent<UIInp>();
             UIInp sc2 = com_2.GetChild(0).GetComponent<UIInp>();
             foreach (var slot in order)

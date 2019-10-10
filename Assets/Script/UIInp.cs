@@ -103,6 +103,7 @@ public class UIInp : MonoBehaviour
             {
                 fill -= 25;
                 SetFill();
+                Debug.Log(GetHue());
                 res[0].transform.GetComponent<Robo>().GiveLekarstvo((int)(GetHue()*10));
             }
         }
