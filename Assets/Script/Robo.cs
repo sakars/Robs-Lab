@@ -11,10 +11,11 @@ public class Robo : MonoBehaviour
     public int prize;
     public GameObject info;
     public GameObject receptionist;
+    public GameObject gudRoom;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gudRoom = GameObject.Find("RobExfill");
     }
 
     // Update is called once per frame
@@ -32,7 +33,10 @@ public class Robo : MonoBehaviour
         Debug.Log(hue);
         if (needed == hue)
         {
-
+            transform.SetParent(gudRoom.transform);
+            transform.localPosition = Vector2.zero;
+            //receptionist
         }
     }
+    
 }

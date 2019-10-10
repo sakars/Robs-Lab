@@ -8,7 +8,7 @@ public class Loader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level = 1;
+        level = PlayerPrefs.GetInt("Clevel");
         Load();
     }
 
