@@ -21,7 +21,14 @@ public class Hb_Disabler : MonoBehaviour
                 on = false;
                 foreach(var script in Activat.instances)
                 {
-                    script.SetHb(on);
+                    if (script)
+                    {
+                        script.SetHb(on);
+                    }
+                    else
+                    {
+                        Activat.instances.Remove(script);
+                    }
                 }
                 foreach (var colb in UIInp.instances)
                 {
@@ -36,7 +43,14 @@ public class Hb_Disabler : MonoBehaviour
                 on = true;
                 foreach (var script in Activat.instances)
                 {
-                    script.SetHb(on);
+                    if (script)
+                    {
+                        script.SetHb(on);
+                    }
+                    else
+                    {
+                        Activat.instances.Remove(script);
+                    }
                 }
                 foreach (var colb in UIInp.instances)
                 {

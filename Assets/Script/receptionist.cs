@@ -39,6 +39,6 @@ public class receptionist : MonoBehaviour
     }
     public void win()
     {
-
+        Debug.Log("You win!!!");
     }
 }
