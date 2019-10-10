@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hb_Disabler : MonoBehaviour
 {
     bool on = true;
-    List<Activat> deletes = new List<Activat>();
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +27,6 @@ public class Hb_Disabler : MonoBehaviour
                     }
                     else
                     {
-                        deletes.Add(script);
                         //Activat.instances.Remove(script);
                     }
                 }
@@ -51,7 +49,6 @@ public class Hb_Disabler : MonoBehaviour
                     }
                     else
                     {
-                        deletes.Add(script);
                         //Activat.instances.Remove(script);
                     }
                 }
@@ -65,10 +62,5 @@ public class Hb_Disabler : MonoBehaviour
                 }
             }
         }
-        foreach(var sc in deletes)
-        {
-            Activat.instances.Remove(sc);
-        }
-        deletes = new List<Activat>();
     }
 }

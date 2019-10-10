@@ -53,6 +53,10 @@ public class receptionist : MonoBehaviour
             }
         }
     }
+    public void displayScore()
+    {
+        reputation.GetComponent<Text>().text = reputation_score + "%";
+    }
     public void win()
     {
         Debug.Log("You win!!!");

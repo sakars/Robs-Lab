@@ -10,7 +10,7 @@ public class Robo : MonoBehaviour
     public bool give=false;
     public int prize;
     public GameObject info;
-    public GameObject receptionist;
+    public GameObject Receptionist;
     public GameObject gudRoom;
 
     public float lightFade = 0.5f;
@@ -40,7 +40,9 @@ public class Robo : MonoBehaviour
         {
             transform.SetParent(gudRoom.transform);
             transform.localPosition = Vector2.zero;
-            receptionist.GetComponent<receptionist>().Test();
+            Receptionist.GetComponent<receptionist>().Test();
+            receptionist.reputation_score += 20;
+            if (receptionist.reputation_score > 100) receptionist.reputation_score = 100;
             GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_3");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
         }
@@ -48,9 +50,11 @@ public class Robo : MonoBehaviour
         {
             GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_2");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
+            receptionist.reputation_score -= 10;
             lightFade = 0.5f;
             InvokeRepeating("fade", 0.03f, 0.04f);
         }
+        Receptionist.GetComponent<receptionist>().displayScore();
     }
     public void fade()
     {
