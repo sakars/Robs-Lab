@@ -96,7 +96,7 @@ public class tutorial : MonoBehaviour
         {
             part1();
         }
-        else
+        else if (farth == 16)
         {
             tg.SetActive(false);
         }
