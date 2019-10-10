@@ -10,6 +10,7 @@ public class Robo : MonoBehaviour
     public bool give=false;
     public int prize;
     public GameObject info;
+    public GameObject receptionist;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,9 @@ public class Robo : MonoBehaviour
     {
         Debug.Log(needed);
         Debug.Log(hue);
+        if (needed == hue)
+        {
 
+        }
     }
 }
