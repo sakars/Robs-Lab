@@ -76,7 +76,6 @@ public class tutorial : MonoBehaviour
             case 16:
                 simple(2);
                 //PlayerPrefs.SetInt("Tut", 1);
-                tg.SetActive(false);
                 break;
         }
     }
@@ -96,6 +95,10 @@ public class tutorial : MonoBehaviour
         if(farth < 16)
         {
             part1();
+        }
+        else
+        {
+            tg.SetActive(false);
         }
     }
 }
