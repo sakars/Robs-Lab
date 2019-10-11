@@ -41,7 +41,7 @@ public class Robo : MonoBehaviour
             transform.SetParent(gudRoom.transform);
             transform.localPosition = Vector2.zero;
             Receptionist.GetComponent<receptionist>().Test();
-            receptionist.reputation_score += 20;
+            receptionist.reputation_score += 15;
             if (receptionist.reputation_score > 100) receptionist.reputation_score = 100;
             GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_8");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
