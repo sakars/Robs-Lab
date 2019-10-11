@@ -42,7 +42,7 @@ public class Robo : MonoBehaviour
             {
                 foreach (var slot in combiner.ord)
                 {
-                    if (slot.transform.childCount == 0 && sc.transform.gameObject!=slot)
+                    if (slot.transform.childCount == 0 && sc.prParent!=slot)
                     {
                         GameObject ob = Resources.Load<GameObject>("combs/Colb");
                         ob = GameObject.Instantiate(ob, slot.transform);
