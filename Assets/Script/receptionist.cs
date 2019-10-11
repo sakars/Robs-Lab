@@ -85,7 +85,7 @@ public class receptionist : MonoBehaviour
         for (int i = 1; i < 4; i++)
         {
             winstarer.transform.GetChild(i - 1).GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f);
-            if (endscore > i * 333)
+            if (endscore > Mathf.Sqrt(i + 1) * 500)
             {
                 winstarer.transform.GetChild(i-1).GetComponent<Image>().color = new Color(1f, 1f, 1f);
             }
