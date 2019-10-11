@@ -43,12 +43,12 @@ public class Robo : MonoBehaviour
             Receptionist.GetComponent<receptionist>().Test();
             receptionist.reputation_score += 20;
             if (receptionist.reputation_score > 100) receptionist.reputation_score = 100;
-            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_3");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_8");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
         }
         else
         {
-            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_2");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_9");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
             receptionist.reputation_score -= 10;
             if (receptionist.reputation_score < 20) receptionist.reputation_score = 20;
