@@ -13,10 +13,12 @@ public class combiner : MonoBehaviour
     private Color it_2;
     public Transform outage;
     public GameObject[] order;
+    public static GameObject[] ord;
     void Start()
     {
         yourButton = transform.GetComponent<Button>();
         yourButton.onClick.AddListener(combine);
+        ord = order;
         //GetComponent<AudioSource>().Play();
     }
 

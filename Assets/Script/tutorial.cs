@@ -32,6 +32,7 @@ public class tutorial : MonoBehaviour
 
     public void redo()
     {
+        theotherman.GetComponent<swiper>().forceTelpa();
         farth = 0;
         //tg = GameObject.Find("TutorialGuys");
         tg.SetActive(true);

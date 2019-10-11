@@ -38,17 +38,34 @@ public class Robo : MonoBehaviour
         //Debug.Log(hue);
         if (needed == hue)
         {
+            if (give)
+            {
+                foreach (var slot in combiner.ord)
+                {
+                    if (slot.transform.childCount == 0)
+                    {
+                        GameObject ob = Resources.Load<GameObject>("combs/Colb");
+                        ob = GameObject.Instantiate(ob, slot.transform);
+                        ob.GetComponent<UIInp>().fill = 50;
+                        ob.GetComponent<UIInp>().SetFill();
+                        ob.GetComponent<Image>().color = Color.HSVToRGB((float)(prize)/10, 1, 1);
+                        ob.transform.position = transform.position;
+                        ob.transform.localScale = new Vector3(1, 1, 1);
+                        break;
+                    }
+                }
+            }
             transform.SetParent(gudRoom.transform);
             transform.localPosition = Vector2.zero;
             Receptionist.GetComponent<receptionist>().Test();
-            receptionist.reputation_score += 15;
+            receptionist.reputation_score += 20;
             if (receptionist.reputation_score > 100) receptionist.reputation_score = 100;
-            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_8");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_3");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
         }
         else
         {
-            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_9");
+            GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_2");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
             receptionist.reputation_score -= 10;
             if (receptionist.reputation_score < 20) receptionist.reputation_score = 20;
