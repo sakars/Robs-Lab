@@ -65,6 +65,7 @@ public class Robo : MonoBehaviour
         }
         else
         {
+            Receptionist.GetComponent<receptionist>().didLose();
             GameObject.Find("RobSounds").GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_9");
             GameObject.Find("RobSounds").GetComponent<AudioSource>().Play();
             receptionist.reputation_score -= 10;
@@ -73,7 +74,6 @@ public class Robo : MonoBehaviour
             InvokeRepeating("fade", 0.03f, 0.04f);
         }
         Receptionist.GetComponent<receptionist>().displayScore();
-        Receptionist.GetComponent<receptionist>().didLose();
     }
     
     public void fade()
