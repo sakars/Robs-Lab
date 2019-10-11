@@ -46,7 +46,7 @@ public class Robo : MonoBehaviour
                     {
                         GameObject ob = Resources.Load<GameObject>("combs/Colb");
                         ob = GameObject.Instantiate(ob, slot.transform);
-                        ob.GetComponent<UIInp>().fill = 50;
+                        ob.GetComponent<UIInp>().fill = 100;
                         ob.GetComponent<UIInp>().SetFill();
                         ob.GetComponent<Image>().color = Color.HSVToRGB((float)(prize)/10, 1, 1);
                         ob.transform.position = transform.position;
