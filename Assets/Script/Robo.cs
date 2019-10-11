@@ -32,7 +32,7 @@ public class Robo : MonoBehaviour
     {
         GetComponent<Image>().sprite = info.GetComponent<RobLooks>().sprites[needed];
     }
-    public void GiveLekarstvo(int hue)
+    public void GiveLekarstvo(int hue, UIInp sc)
     {
         //Debug.Log(needed);
         //Debug.Log(hue);
@@ -42,7 +42,7 @@ public class Robo : MonoBehaviour
             {
                 foreach (var slot in combiner.ord)
                 {
-                    if (slot.transform.childCount == 0)
+                    if (slot.transform.childCount == 0 && sc.transform.gameObject!=slot)
                     {
                         GameObject ob = Resources.Load<GameObject>("combs/Colb");
                         ob = GameObject.Instantiate(ob, slot.transform);

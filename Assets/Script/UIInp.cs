@@ -111,7 +111,7 @@ public class UIInp : MonoBehaviour
             {
                 fill -= 25;
                 SetFill();
-                res[0].transform.GetComponent<Robo>().GiveLekarstvo((Mathf.RoundToInt(GetHue()*10)));
+                res[0].transform.GetComponent<Robo>().GiveLekarstvo(Mathf.RoundToInt(GetHue()*10),this);
             }
         }
         transform.SetParent(prParent.transform);
