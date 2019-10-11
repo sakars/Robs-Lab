@@ -11,8 +11,8 @@ public class BgKeep : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            PlayerPrefs.SetInt("Tut", 0);
-            Debug.Log("Tut set to " + PlayerPrefs.GetInt("Tut"));
+            //PlayerPrefs.SetInt("Tut", 0);
+            //Debug.Log("Tut set to " + PlayerPrefs.GetInt("Tut"));
         }
         else
         {
