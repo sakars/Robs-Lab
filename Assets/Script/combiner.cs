@@ -74,7 +74,7 @@ public class combiner : MonoBehaviour
                     ob.transform.localScale = new Vector3(1, 1, 1);
                     don = true;
                     GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_4");
-                    GetComponent<AudioSource>().volume = 0.25f;
+                    GetComponent<AudioSource>().volume = 0.35f;
                     GetComponent<AudioSource>().Play();
                     break;
 
@@ -83,14 +83,14 @@ public class combiner : MonoBehaviour
             if (don == false)
             {
                 GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_5");
-                GetComponent<AudioSource>().volume = 0.3f;
+                GetComponent<AudioSource>().volume = 0.4f;
                 GetComponent<AudioSource>().Play();
             }
         }
         else
         {
             GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("sounds/SFX_VITC_5");
-            GetComponent<AudioSource>().volume = 0.3f;
+            GetComponent<AudioSource>().volume = 0.4f;
             GetComponent<AudioSource>().Play();
         }
     }
