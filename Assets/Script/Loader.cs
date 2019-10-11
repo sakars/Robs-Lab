@@ -8,6 +8,7 @@ public class Loader : MonoBehaviour
 {
     public int level;
     public GameObject Sign;
+    public string[] colbNames = new string[10];
     // Start is called before the first frame update
     void Start()
     {

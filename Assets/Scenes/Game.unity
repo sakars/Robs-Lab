@@ -3135,7 +3135,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  Sign: {fileID: 0}
+  Sign: {fileID: 141227261}
+  colbNames:
+  - Cozono
+  - Tefazoo
+  - Rehefan
+  - Nnyfal
+  - Sprii
+  - Tezon
+  - Yuriel
+  - Zofadel
+  - Wen
+  - Ksacelan
 --- !u!114 &518722166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7396,7 +7407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ea44fe6b92cc94e8a5bbb58a767a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitingRoom: {fileID: 0}
+  WaitingRoom: {fileID: 1397338960}
   patientsLeft: {fileID: 698923111}
   reputation: {fileID: 237922412}
   winhlerk: {fileID: 803080256}

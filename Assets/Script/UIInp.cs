@@ -72,11 +72,19 @@ public class UIInp : MonoBehaviour
     {
         drag = true;
         transform.position = data.position;
+        float hue;
+        float t;
+        Color.RGBToHSV(GetComponent<Image>().color, out hue, out t, out t);
+        hue *= 10;
+        int col = Mathf.RoundToInt(hue);
+        GameObject.Find("LevelName").transform.GetComponent<Text>().text = GameObject.Find("Static").transform.GetComponent<Loader>().colbNames[col];
+
         transform.SetParent(mov.transform);
     }
     public void OnEndDrag(PointerEventData data)
     {
         drag = false;
+        GameObject.Find("LevelName").transform.GetComponent<Text>().text = "Level " + GameObject.Find("Static").transform.GetComponent<Loader>().level;
         ContactFilter2D filter = new ContactFilter2D();
         Collider2D[] res = new Collider2D[2];
         int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter,res);
