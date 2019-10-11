@@ -99,7 +99,7 @@ public class receptionist : MonoBehaviour
     {
         CancelInvoke();
         loshlerk.SetActive(true);
-        endscore = reputation_score * 71 - WaitingRoom.transform.childCount * 57;
+        endscore = reputation_score * 7 - WaitingRoom.transform.childCount * 57;
         GameObject.Find("ScoringSyst").GetComponent<Text>().text = "Score: " + Mathf.RoundToInt(endscore);
 
     }
