@@ -13,6 +13,7 @@ public class BgKeep : MonoBehaviour
             instance = this;
             //PlayerPrefs.SetInt("Tut", 0);
             //Debug.Log("Tut set to " + PlayerPrefs.GetInt("Tut"));
+            Input.multiTouchEnabled = false;
         }
         else
         {

@@ -15,6 +15,7 @@ public class UIInp : MonoBehaviour
     private bool drag = false;
     private GameObject colber;
     private GameObject colber2;
+    public static UIInp Moving;
     private void Start()
     {
         colber = GameObject.Find("ColbSounds");
@@ -70,50 +71,58 @@ public class UIInp : MonoBehaviour
     }
     public void OnDrag(PointerEventData data)
     {
-        drag = true;
-        transform.position = data.position;
-        float hue;
-        float t;
-        Color.RGBToHSV(GetComponent<Image>().color, out hue, out t, out t);
-        hue *= 10;
-        int col = Mathf.RoundToInt(hue + 0.1f);
-        GameObject.Find("LevelName").transform.GetComponent<Text>().text = GameObject.Find("Static").transform.GetComponent<Loader>().colbNames[col];
-
-        transform.SetParent(mov.transform);
+        if (Moving == null) Moving = this;
+        if (Moving == this)
+        {
+            drag = true;
+            transform.position = data.position;
+            float hue;
+            float t;
+            Color.RGBToHSV(GetComponent<Image>().color, out hue, out t, out t);
+            hue *= 10;
+            int col = Mathf.RoundToInt(hue + 0.1f);
+            GameObject.Find("LevelName").transform.GetComponent<Text>().text = GameObject.Find("Static").transform.GetComponent<Loader>().colbNames[col];
+            transform.SetParent(mov.transform);
+        }
     }
     public void OnEndDrag(PointerEventData data)
     {
-        drag = false;
-        GameObject.Find("LevelName").transform.GetComponent<Text>().text = "Level " + GameObject.Find("Static").transform.GetComponent<Loader>().level;
-        ContactFilter2D filter = new ContactFilter2D();
-        Collider2D[] res = new Collider2D[2];
-        int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter,res);
-        if (res[0])
+        if (Moving == this)
         {
-            if (res[0].transform.GetComponent<Activat>())
+            drag = false;
+            GameObject.Find("LevelName").transform.GetComponent<Text>().text = "Level " + GameObject.Find("Static").transform.GetComponent<Loader>().level;
+            ContactFilter2D filter = new ContactFilter2D();
+            Collider2D[] res = new Collider2D[2];
+            int cols = GetComponent<BoxCollider2D>().OverlapCollider(filter, res);
+            if (res[0])
             {
-                //Debug.Log(res[0].gameObject);
-                if (res[0].transform.childCount != 0)
+                if (res[0].transform.GetComponent<Activat>())
                 {
-                    //Debug.Log(prParent.name);
-                    //Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
-                    res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
-                    res[0].transform.GetChild(0).SetParent(prParent.transform);
-                    colber.GetComponent<AudioSource>().Play();
+                    //Debug.Log(res[0].gameObject);
+                    if (res[0].transform.childCount != 0)
+                    {
+                        //Debug.Log(prParent.name);
+                        //Debug.Log(res[0].transform.GetChild(0).GetComponent<UIInp>().prParent);
+                        res[0].transform.GetChild(0).GetComponent<UIInp>().prParent = prParent;
+                        res[0].transform.GetChild(0).SetParent(prParent.transform);
+                        colber.GetComponent<AudioSource>().Play();
+                    }
+                    else
+                    {
+                        colber2.GetComponent<AudioSource>().Play();
+                    }
+                    prParent = res[0].gameObject;
                 }
-                else
+                else if (res[0].transform.GetComponent<Robo>())
                 {
-                    colber2.GetComponent<AudioSource>().Play();
+                    fill -= 25;
+                    SetFill();
+                    res[0].transform.GetComponent<Robo>().GiveLekarstvo(Mathf.RoundToInt(GetHue() * 10), this);
                 }
-                prParent = res[0].gameObject;
             }
-            else if (res[0].transform.GetComponent<Robo>())
-            {
-                fill -= 25;
-                SetFill();
-                res[0].transform.GetComponent<Robo>().GiveLekarstvo(Mathf.RoundToInt(GetHue()*10),this);
-            }
+            transform.SetParent(prParent.transform);
+            Moving = null;
         }
-        transform.SetParent(prParent.transform);
+
     }
 }
