@@ -98,6 +98,7 @@ public class receptionist : MonoBehaviour
     public void lose()
     {
         CancelInvoke();
+        //loshlerk.GetChild(2).GetComponent<Script>().text
         loshlerk.SetActive(true);
     }
     public void didLose()
