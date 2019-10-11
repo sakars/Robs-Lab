@@ -53,7 +53,7 @@ public class combiner : MonoBehaviour
                 mid = (Mathf.Max(hue1, hue2) - distance / 2);
             }*/
             mid *= 10f;
-            mid = Mathf.Round(mid);
+            mid = Mathf.Round(mid + 0.1f);
             mid /= 10f;
             mid %= 1;
             Debug.Log(mid);

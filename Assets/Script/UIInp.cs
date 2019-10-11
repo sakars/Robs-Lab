@@ -76,7 +76,7 @@ public class UIInp : MonoBehaviour
         float t;
         Color.RGBToHSV(GetComponent<Image>().color, out hue, out t, out t);
         hue *= 10;
-        int col = Mathf.RoundToInt(hue);
+        int col = Mathf.RoundToInt(hue + 0.1f);
         GameObject.Find("LevelName").transform.GetComponent<Text>().text = GameObject.Find("Static").transform.GetComponent<Loader>().colbNames[col];
 
         transform.SetParent(mov.transform);
