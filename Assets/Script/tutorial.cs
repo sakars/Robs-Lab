@@ -96,6 +96,9 @@ public class tutorial : MonoBehaviour
                 break;
             case 17:
                 simple(2);
+                break;
+            case 18:
+                simple(2);
                 PlayerPrefs.SetInt("Tut", 1);
                 Debug.Log(PlayerPrefs.GetInt("Tut"));
                 break;
@@ -114,11 +117,11 @@ public class tutorial : MonoBehaviour
 
     public void Advance()
     {
-        if(farth < 17)
+        if(farth < 18)
         {
             part1();
         }
-        else if (farth == 17)
+        else if (farth == 18)
         {
             tg.SetActive(false);
             receptionist.self.InvokeRepeating("LowerScore", 10.0f, 1.5f);
