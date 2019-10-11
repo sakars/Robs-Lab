@@ -20,7 +20,7 @@ public class tutorial : MonoBehaviour
         }
         else
         {
-            GameObject.Find("roblocs").GetComponent<receptionist>().InvokeRepeating("LowerScore", 5.0f, 2.0f);
+            GameObject.Find("roblocs").GetComponent<receptionist>().InvokeRepeating("LowerScore", 10.0f, 1.5f);
         }
     }
 
@@ -121,7 +121,7 @@ public class tutorial : MonoBehaviour
         else if (farth == 17)
         {
             tg.SetActive(false);
-            receptionist.self.InvokeRepeating("LowerScore", 5.0f, 2.0f);
+            receptionist.self.InvokeRepeating("LowerScore", 10.0f, 1.5f);
         }
     }
 }

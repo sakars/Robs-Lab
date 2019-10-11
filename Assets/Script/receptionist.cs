@@ -98,8 +98,10 @@ public class receptionist : MonoBehaviour
     public void lose()
     {
         CancelInvoke();
-        //loshlerk.GetChild(2).GetComponent<Script>().text
         loshlerk.SetActive(true);
+        endscore = reputation_score * 71 - WaitingRoom.transform.childCount * 57;
+        GameObject.Find("ScoringSyst").GetComponent<Text>().text = "Score: " + Mathf.RoundToInt(endscore);
+
     }
     public void didLose()
     {
